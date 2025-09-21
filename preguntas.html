@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Éxodo (RV1960)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        .question {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 15px;
+        }
+        .question p {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #555;
+        }
+        .options label {
+            display: block;
+            margin: 5px 0;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .options label:hover {
+            background-color: #e2e2e2;
+        }
+        .check-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+            display: block;
+        }
+        .check-btn:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 1em;
+        }
+        .correct {
+            color: #28a745;
+        }
+        .incorrect {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Cuestionario de Éxodo</h1>
+    <h2>Reina Valera 1960</h2>
+
+    <form id="quizForm">
+        
+        <div class="question">
+            <p>1. De un siervo hebreo comprado, si entra soltero, ¿cómo saldrá al séptimo año de servicio según Éxodo 21:2?</p>
+            <div class="options">
+                <label><input type="radio" name="q1" value="a"> A) Con la mujer y los hijos que su amo le hubiere dado</label>
+                <label><input type="radio" name="q1" value="b"> B) Solo</label>
+                <label><input type="radio" name="q1" value="c"> C) Con una porción de las ganancias de su amo</label>
+                <label><input type="radio" name="q1" value="d"> D) Libre con un regalo de su amo</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q1')">Verificar Respuesta</button>
+            <div class="result" id="r1"></div>
+        </div>
+
+        <div class="question">
+            <p>2. Según Éxodo 21:15, ¿qué castigo se le imponía a quien hiriere a su padre o a su madre?</p>
+            <div class="options">
+                <label><input type="radio" name="q2" value="a"> A) Será desterrado de la familia</label>
+                <label><input type="radio" name="q2" value="b"> B) Será vendido como esclavo</label>
+                <label><input type="radio" name="q2" value="c"> C) Morirá irremisiblemente</label>
+                <label><input type="radio" name="q2" value="d"> D) Deberá pagar una multa</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q2')">Verificar Respuesta</button>
+            <div class="result" id="r2"></div>
+        </div>
+        
+        <div class="question">
+            <p>3. ¿Qué castigo se imponía a quien maldijere a su padre o a su madre, según Éxodo 21:17?</p>
+            <div class="options">
+                <label><input type="radio" name="q3" value="a"> A) Morirá irremisiblemente</label>
+                <label><input type="radio" name="q3" value="b"> B) Será desterrado de la familia</label>
+                <label><input type="radio" name="q3" value="c"> C) Será vendido como esclavo por un año</label>
+                <label><input type="radio" name="q3" value="d"> D) Se le cortará la mano</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q3')">Verificar Respuesta</button>
+            <div class="result" id="r3"></div>
+        </div>
+
+        <div class="question">
+            <p>4. Si un buey acorneador mataba a un hombre o una mujer, ¿qué se debía hacer con el animal según Éxodo 21:28?</p>
+            <div class="options">
+                <label><input type="radio" name="q4" value="a"> A) El buey era vendido y el dueño multado</label>
+                <label><input type="radio" name="q4" value="b"> B) El buey era apedreado y su carne no era comida</label>
+                <label><input type="radio" name="q4" value="c"> C) El buey era sacrificado y su carne se daba a los sacerdotes</label>
+                <label><input type="radio" name="q4" value="d"> D) El buey era desterrado</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q4')">Verificar Respuesta</button>
+            <div class="result" id="r4"></div>
+        </div>
+
+        <div class="question">
+            <p>5. ¿Qué debía hacer el dueño de un buey acorneador si sabía de su mala fama y este mataba a una persona, según Éxodo 21:29?</p>
+            <div class="options">
+                <label><input type="radio" name="q5" value="a"> A) Pagar una multa al sumo sacerdote</label>
+                <label><input type="radio" name="q5" value="b"> B) Morir</label>
+                <label><input type="radio" name="q5" value="c"> C) Entregar el buey al juez</label>
+                <label><input type="radio" name="q5" value="d"> D) Ser azotado en público</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q5')">Verificar Respuesta</button>
+            <div class="result" id="r5"></div>
+        </div>
+        
+        <div class="question">
+            <p>6. ¿Cuál es la ley del "ojo por ojo, diente por diente" establecida en Éxodo 21:24?</p>
+            <div class="options">
+                <label><input type="radio" name="q6" value="a"> A) Un castigo más severo que el daño causado</label>
+                <label><input type="radio" name="q6" value="b"> B) Un castigo exactamente igual al daño causado</label>
+                <label><input type="radio" name="q6" value="c"> C) Un castigo menor al daño causado</label>
+                <label><input type="radio" name="q6" value="d"> D) Un castigo simbólico</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q6')">Verificar Respuesta</button>
+            <div class="result" id="r6"></div>
+        </div>
+        
+        <div class="question">
+            <p>7. Según Éxodo 22:4, si un ladrón es hallado con el hurto vivo (buey, asno u oveja), ¿cuánto debía pagar?</p>
+            <div class="options">
+                <label><input type="radio" name="q7" value="a"> A) El doble</label>
+                <label><input type="radio" name="q7" value="b"> B) El mismo valor del hurto</label>
+                <label><input type="radio" name="q7" value="c"> C) El cuádruplo</label>
+                <label><input type="radio" name="q7" value="d"> D) El quíntuplo</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q7')">Verificar Respuesta</button>
+            <div class="result" id="r7"></div>
+        </div>
+        
+        <div class="question">
+            <p>8. En Éxodo 22:21, ¿a quiénes prohíbe Jehová afligir, recordando la experiencia de Israel en Egipto?</p>
+            <div class="options">
+                <label><input type="radio" name="q8" value="a"> A) A los extranjeros, viudas y huérfanos</label>
+                <label><input type="radio" name="q8" value="b"> B) A los siervos y a los levitas</label>
+                <label><input type="radio" name="q8" value="c"> C) A los ancianos y a los extranjeros</label>
+                <label><input type="radio" name="q8" value="d"> D) A los pobres y a los enfermos</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q8')">Verificar Respuesta</button>
+            <div class="result" id="r8"></div>
+        </div>
+        
+        <div class="question">
+            <p>9. ¿Qué debía hacer una persona que tomaba prestada una bestia de su prójimo y esta moría o era estropeada estando el dueño ausente, según Éxodo 22:14?</p>
+            <div class="options">
+                <label><input type="radio" name="q9" value="a"> A) No pagará si el dueño estaba ausente</label>
+                <label><input type="radio" name="q9" value="b"> B) Deberá pagarla</label>
+                <label><input type="radio" name="q9" value="c"> C) Solo pagará si fue por robo</label>
+                <label><input type="radio" name="q9" value="d"> D) Deberá sacrificar otra bestia en su lugar</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q9')">Verificar Respuesta</button>
+            <div class="result" id="r9"></div>
+        </div>
+
+        <div class="question">
+            <p>10. ¿Qué castigo se aplica si un ladrón era hallado forzando una casa y era herido de muerte, según Éxodo 22:2?</p>
+            <div class="options">
+                <label><input type="radio" name="q10" value="a"> A) Su muerte no será castigada</label>
+                <label><input type="radio" name="q10" value="b"> B) La persona que lo mató pagará una multa</label>
+                <label><input type="radio" name="q10" value="c"> C) La persona que lo mató morirá</label>
+                <label><input type="radio" name="q10" value="d"> D) El ladrón será azotado</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q10')">Verificar Respuesta</button>
+            <div class="result" id="r10"></div>
+        </div>
+
+        <div class="question">
+            <p>11. ¿Cuál es la ley sobre el soborno y la justicia, según Éxodo 23:8?</p>
+            <div class="options">
+                <label><input type="radio" name="q11" value="a"> A) Tomar soborno está prohibido, porque ciega a los sabios y pervierte la justicia</label>
+                <label><input type="radio" name="q11" value="b"> B) Tomar soborno es aceptable si es para ayudar al necesitado</label>
+                <label><input type="radio" name="q11" value="c"> C) El soborno es una forma de compensación</label>
+                <label><input type="radio" name="q11" value="d"> D) El soborno solo está prohibido para los jueces</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q11')">Verificar Respuesta</button>
+            <div class="result" id="r11"></div>
+        </div>
+
+        <div class="question">
+            <p>12. En Éxodo 23:10-11, ¿cuál era la duración del ciclo para la tierra de siembra?</p>
+            <div class="options">
+                <label><input type="radio" name="q12" value="a"> A) Tres años de siembra y uno de reposo</label>
+                <label><input type="radio" name="q12" value="b"> B) Seis años de siembra y un año de reposo</label>
+                <label><input type="radio" name="q12" value="c"> C) Cinco años de siembra y dos de reposo</label>
+                <label><input type="radio" name="q12" value="d"> D) Diez años de siembra y un año de reposo</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q12')">Verificar Respuesta</button>
+            <div class="result" id="r12"></div>
+        </div>
+
+        <div class="question">
+            <p>13. ¿Cuáles son las tres festividades que los israelitas debían celebrar en el año, según Éxodo 23:14-16?</p>
+            <div class="options">
+                <label><input type="radio" name="q13" value="a"> A) La Fiesta de los Panes sin Levadura, la Fiesta de la Siega y la Fiesta de la Cosecha</label>
+                <label><input type="radio" name="q13" value="b"> B) La Pascua, la Fiesta de las Trompetas y la Fiesta de los Panes sin Levadura</label>
+                <label><input type="radio" name="q13" value="c"> C) La Fiesta de las Primicias, la Fiesta de los Tabernáculos y la Fiesta de la Cosecha</label>
+                <label><input type="radio" name="q13" value="d"> D) La Fiesta de la Expiación, la Fiesta de los Tabernáculos y la Pascua</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q13')">Verificar Respuesta</button>
+            <div class="result" id="r13"></div>
+        </div>
+
+        <div class="question">
+            <p>14. ¿Qué se debía hacer con un animal extraviado del enemigo, según Éxodo 23:4?</p>
+            <div class="options">
+                <label><input type="radio" name="q14" value="a"> A) Tomarlo y quedárselo</label>
+                <label><input type="radio" name="q14" value="b"> B) Devolverlo a su dueño</label>
+                <label><input type="radio" name="q14" value="c"> C) Dejarlo en el camino</label>
+                <label><input type="radio" name="q14" value="d"> D) Sacrificarlo como ofrenda</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q14')">Verificar Respuesta</button>
+            <div class="result" id="r14"></div>
+        </div>
+
+        <div class="question">
+            <p>15. ¿Qué prohibición se da sobre la mentira y el testimonio falso en Éxodo 23:1?</p>
+            <div class="options">
+                <label><input type="radio" name="q15" value="a"> A) No tomarás ni esparcirás falso rumor, ni te unirás al impío</label>
+                <label><input type="radio" name="q15" value="b"> B) Darás testimonio de la verdad en todo momento</label>
+                <label><input type="radio" name="q15" value="c"> C) La mentira es pecado solo en el tribunal</label>
+                <label><input type="radio" name="q15" value="d"> D) No levantarás falso testimonio</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q15')">Verificar Respuesta</button>
+            <div class="result" id="r15"></div>
+        </div>
+
+        <div class="question">
+            <p>16. Según Éxodo 27:1, ¿cuáles eran las dimensiones del altar del holocausto?</p>
+            <div class="options">
+                <label><input type="radio" name="q16" value="a"> A) Cinco codos de longitud y cinco codos de anchura; cuadrado, y su altura de tres codos</label>
+                <label><input type="radio" name="q16" value="b"> B) Tres codos de largo, tres de ancho y cinco de alto</label>
+                <label><input type="radio" name="q16" value="c"> C) Diez codos de largo, diez de ancho y cinco de alto</label>
+                <label><input type="radio" name="q16" value="d"> D) Cinco codos de largo, diez de ancho y tres de alto</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q16')">Verificar Respuesta</button>
+            <div class="result" id="r16"></div>
+        </div>
+
+        <div class="question">
+            <p>17. ¿De qué material estaban hechas las cortinas del atrio del tabernáculo, según Éxodo 27:9?</p>
+            <div class="options">
+                <label><input type="radio" name="q17" value="a"> A) De lino torcido</label>
+                <label><input type="radio" name="q17" value="b"> B) De lana azul, púrpura y carmesí</label>
+                <label><input type="radio" name="q17" value="c"> C) De cuero de tejones</label>
+                <label><input type="radio" name="q17" value="d"> D) De pelo de cabra</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q17')">Verificar Respuesta</button>
+            <div class="result" id="r17"></div>
+        </div>
+
+        <div class="question">
+            <p>18. En Éxodo 27:18, ¿cuáles eran las dimensiones del atrio del tabernáculo?</p>
+            <div class="options">
+                <label><input type="radio" name="q18" value="a"> A) 50 codos de largo y 25 de ancho</label>
+                <label><input type="radio" name="q18" value="b"> B) 100 codos de longitud y 50 de anchura</label>
+                <label><input type="radio" name="q18" value="c"> C) 100 codos de largo y 100 de ancho</label>
+                <label><input type="radio" name="q18" value="d"> D) 50 codos de largo y 50 de ancho</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q18')">Verificar Respuesta</button>
+            <div class="result" id="r18"></div>
+        </div>
+
+        <div class="question">
+            <p>19. ¿De qué metal estaban hechas las bases de las columnas del atrio, según Éxodo 27:17?</p>
+            <div class="options">
+                <label><input type="radio" name="q19" value="a"> A) Oro</label>
+                <label><input type="radio" name="q19" value="b"> B) Bronce</label>
+                <label><input type="radio" name="q19" value="c"> C) Plata</label>
+                <label><input type="radio" name="q19" value="d"> D) Cobre</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q19')">Verificar Respuesta</button>
+            <div class="result" id="r19"></div>
+        </div>
+
+        <div class="question">
+            <p>20. Según Éxodo 28:15, ¿qué vestidura sagrada se describe como el “pectoral del juicio”?</p>
+            <div class="options">
+                <label><input type="radio" name="q20" value="a"> A) La mitra</label>
+                <label><input type="radio" name="q20" value="b"> B) El efod</label>
+                <label><input type="radio" name="q20" value="c"> C) El manto</label>
+                <label><input type="radio" name="q20" value="d"> D) El pectoral</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q20')">Verificar Respuesta</button>
+            <div class="result" id="r20"></div>
+        </div>
+
+        <div class="question">
+            <p>21. En Éxodo 28:21, ¿cuántas piedras preciosas había en el pectoral del juicio y a quiénes representaban?</p>
+            <div class="options">
+                <label><input type="radio" name="q21" value="a"> A) Diez piedras, que representaban los Diez Mandamientos</label>
+                <label><input type="radio" name="q21" value="b"> B) Doce piedras, que representaban los nombres de los hijos de Israel</label>
+                <label><input type="radio" name="q21" value="c"> C) Siete piedras, que representaban los siete días de la creación</label>
+                <label><input type="radio" name="q21" value="d"> D) Una piedra grande, que representaba a Aarón</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q21')">Verificar Respuesta</button>
+            <div class="result" id="r21"></div>
+        </div>
+
+        <div class="question">
+            <p>22. De acuerdo con Éxodo 28:36, ¿qué inscripción llevaba la lámina de oro para la mitra de Aarón?</p>
+            <div class="options">
+                <label><input type="radio" name="q22" value="a"> A) El Gran Sacerdote</label>
+                <label><input type="radio" name="q22" value="b"> B) El Pueblo de Israel</label>
+                <label><input type="radio" name="q22" value="c"> C) SANTIDAD A JEHOVÁ</label>
+                <label><input type="radio" name="q22" value="d"> D) JEHOVÁ ES DIOS</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q22')">Verificar Respuesta</button>
+            <div class="result" id="r22"></div>
+        </div>
+
+        <div class="question">
+            <p>23. ¿Qué representaban los dos rubíes que estaban en las hombreras del efod, según Éxodo 28:9-12?</p>
+            <div class="options">
+                <label><input type="radio" name="q23" value="a"> A) La fe y el amor de Aarón</label>
+                <label><input type="radio" name="q23" value="b"> B) Los nombres de los hijos de Israel</label>
+                <label><input type="radio" name="q23" value="c"> C) La sabiduría y el poder de Dios</label>
+                <label><input type="radio" name="q23" value="d"> D) Los nombres de Moisés y Aarón</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q23')">Verificar Respuesta</button>
+            <div class="result" id="r23"></div>
+        </div>
+
+        <div class="question">
+            <p>24. Según Éxodo 30:6, ¿dónde se debía colocar el altar del incienso?</p>
+            <div class="options">
+                <label><input type="radio" name="q24" value="a"> A) En el atrio, delante del altar del holocausto</label>
+                <label><input type="radio" name="q24" value="b"> B) Delante del velo que está junto al arca del testimonio</label>
+                <label><input type="radio" name="q24" value="c"> C) En el lugar santísimo, junto al arca</label>
+                <label><input type="radio" name="q24" value="d"> D) En la entrada del tabernáculo de reunión</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q24')">Verificar Respuesta</button>
+            <div class="result" id="r24"></div>
+        </div>
+
+        <div class="question">
+            <p>25. ¿Quién debía quemar incienso aromático sobre el altar y con qué frecuencia, según Éxodo 30:7-8?</p>
+            <div class="options">
+                <label><input type="radio" name="q25" value="a"> A) Moisés, una vez al día</label>
+                <label><input type="radio" name="q25" value="b"> B) Aarón, cada mañana y al anochecer</label>
+                <label><input type="radio" name="q25" value="c"> C) Un levita, una vez a la semana</label>
+                <label><input type="radio" name="q25" value="d"> D) El pueblo de Israel, una vez al año</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q25')">Verificar Respuesta</button>
+            <div class="result" id="r25"></div>
+        </div>
+
+        <div class="question">
+            <p>26. De acuerdo con Éxodo 30:25-30, ¿con qué se debía ungir a Aarón y a sus hijos para consagrarlos?</p>
+            <div class="options">
+                <label><input type="radio" name="q26" value="a"> A) Con aceite de oliva simple</label>
+                <label><input type="radio" name="q26" value="b"> B) Con agua de la fuente de bronce</label>
+                <label><input type="radio" name="q26" value="c"> C) Con el aceite de la santa unción</label>
+                <label><input type="radio" name="q26" value="d"> D) Con incienso aromático</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q26')">Verificar Respuesta</button>
+            <div class="result" id="r26"></div>
+        </div>
+
+        <div class="question">
+            <p>27. ¿Qué se debía poner en el altar de incienso, según Éxodo 30:34?</p>
+            <div class="options">
+                <label><input type="radio" name="q27" value="a"> A) Una mezcla de hierbas secas</label>
+                <label><input type="radio" name="q27" value="b"> B) Incienso aromático</label>
+                <label><input type="radio" name="q27" value="c"> C) Grano molido</label>
+                <label><input type="radio" name="q27" value="d"> D) Fuego del altar del holocausto</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q27')">Verificar Respuesta</button>
+            <div class="result" id="r27"></div>
+        </div>
+
+        <div class="question">
+            <p>28. Según Éxodo 35:5, ¿qué tipo de ofrenda debían traer los israelitas para la construcción del tabernáculo?</p>
+            <div class="options">
+                <label><input type="radio" name="q28" value="a"> A) Una ofrenda obligatoria</label>
+                <label><input type="radio" name="q28" value="b"> B) Una ofrenda en dinero</label>
+                <label><input type="radio" name="q28" value="c"> C) Una ofrenda voluntaria</label>
+                <label><input type="radio" name="q28" value="d"> D) Una ofrenda en animales</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q28')">Verificar Respuesta</button>
+            <div class="result" id="r28"></div>
+        </div>
+
+        <div class="question">
+            <p>29. En Éxodo 35:30-31, ¿cuáles son los nombres de los dos artesanos principales que Jehová llenó con el Espíritu para hacer la obra?</p>
+            <div class="options">
+                <label><input type="radio" name="q29" value="a"> A) Bezaleel y Aholiab</label>
+                <label><input type="radio" name="q29" value="b"> B) Moisés y Aarón</label>
+                <label><input type="radio" name="q29" value="c"> C) Nadab y Abiú</label>
+                <label><input type="radio" name="q29" value="d"> D) Hur y Betsalel</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q29')">Verificar Respuesta</button>
+            <div class="result" id="r29"></div>
+        </div>
+
+        <div class="question">
+            <p>30. De acuerdo con Éxodo 36:5-7, ¿cuál fue la reacción de Moisés ante la generosa ofrenda del pueblo?</p>
+            <div class="options">
+                <label><input type="radio" name="q30" value="a"> A) Mandó a que el pueblo dejara de traer ofrendas porque ya tenían suficiente</label>
+                <label><input type="radio" name="q30" value="b"> B) Se enojó porque el pueblo no traía lo suficiente</label>
+                <label><input type="radio" name="q30" value="c"> C) Les agradeció y les pidió que trajeran más</label>
+                <label><input type="radio" name="q30" value="d"> D) Ignoró la ofrenda del pueblo</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q30')">Verificar Respuesta</button>
+            <div class="result" id="r30"></div>
+        </div>
+
+        <div class="question">
+            <p>31. ¿Qué hicieron las mujeres sabias de corazón para contribuir a la obra del tabernáculo, según Éxodo 35:25?</p>
+            <div class="options">
+                <label><input type="radio" name="q31" value="a"> A) Trajeron joyas de oro y plata</label>
+                <label><input type="radio" name="q31" value="b"> B) Hilaban con sus manos y traían el material hilado</label>
+                <label><input type="radio" name="q31" value="c"> C) Trajeron el aceite para el candelero</label>
+                <label><input type="radio" name="q31" value="d"> D) Cuidaban los rebaños de ovejas</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q31')">Verificar Respuesta</button>
+            <div class="result" id="r31"></div>
+        </div>
+
+        <div class="question">
+            <p>32. Según Éxodo 37:1, ¿cuáles eran las dimensiones del arca del testimonio?</p>
+            <div class="options">
+                <label><input type="radio" name="q32" value="a"> A) Dos codos y medio de largo, un codo y medio de ancho y un codo y medio de alto</label>
+                <label><input type="radio" name="q32" value="b"> B) Dos codos de largo, dos de ancho y dos de alto</label>
+                <label><input type="radio" name="q32" value="c"> C) Tres codos de largo, uno y medio de ancho y uno de alto</label>
+                <label><input type="radio" name="q32" value="d"> D) Cinco codos de largo, tres de ancho y tres de alto</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q32')">Verificar Respuesta</button>
+            <div class="result" id="r32"></div>
+        </div>
+
+        <div class="question">
+            <p>33. En Éxodo 37:7, ¿de qué se hicieron los querubines para el propiciatorio del arca?</p>
+            <div class="options">
+                <label><input type="radio" name="q33" value="a"> A) De madera de acacia cubierta de oro</label>
+                <label><input type="radio" name="q33" value="b"> B) De oro fino labrado a martillo</label>
+                <label><input type="radio" name="q33" value="c"> C) De bronce labrado</label>
+                <label><input type="radio" name="q33" value="d"> D) De plata y piedras preciosas</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q33')">Verificar Respuesta</button>
+            <div class="result" id="r33"></div>
+        </div>
+
+        <div class="question">
+            <p>34. De acuerdo con Éxodo 37:17, ¿de qué material se hizo el candelero?</p>
+            <div class="options">
+                <label><input type="radio" name="q34" value="a"> A) Bronce</label>
+                <label><input type="radio" name="q34" value="b"> B) Plata</label>
+                <label><input type="radio" name="q34" value="c"> C) Oro puro</label>
+                <label><input type="radio" name="q34" value="d"> D) Madera de acacia cubierta de oro</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q34')">Verificar Respuesta</button>
+            <div class="result" id="r34"></div>
+        </div>
+
+        <div class="question">
+            <p>35. ¿De qué material se hicieron la fuente de bronce y su base, según Éxodo 38:8?</p>
+            <div class="options">
+                <label><input type="radio" name="q35" value="a"> A) De los espejos de bronce de las mujeres que velaban a la puerta del tabernáculo de reunión</label>
+                <label><input type="radio" name="q35" value="b"> B) De láminas de cobre</label>
+                <label><input type="radio" name="q35" value="c"> C) De las basas de bronce del atrio</label>
+                <label><input type="radio" name="q35" value="d"> D) De bronce y oro</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q35')">Verificar Respuesta</button>
+            <div class="result" id="r35"></div>
+        </div>
+
+        <div class="question">
+            <p>36. ¿De qué material estaba hecho el altar del holocausto, según Éxodo 38:1?</p>
+            <div class="options">
+                <label><input type="radio" name="q36" value="a"> A) Madera de acacia cubierta de oro</label>
+                <label><input type="radio" name="q36" value="b"> B) Madera de acacia cubierta de bronce</label>
+                <label><input type="radio" name="q36" value="c"> C) Plata</label>
+                <label><input type="radio" name="q36" value="d"> D) Hierro</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q36')">Verificar Respuesta</button>
+            <div class="result" id="r36"></div>
+        </div>
+
+        <div class="question">
+            <p>37. En Éxodo 39:2, ¿de qué material se hizo el efod y de qué colores era?</p>
+            <div class="options">
+                <label><input type="radio" name="q37" value="a"> A) De plata y lino torcido</label>
+                <label><input type="radio" name="q37" value="b"> B) De oro, azul, púrpura, carmesí y lino torcido</label>
+                <label><input type="radio" name="q37" value="c"> C) De lino fino, blanco y puro</label>
+                <label><input type="radio" name="q37" value="d"> D) De bronce y pelo de cabra</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q37')">Verificar Respuesta</button>
+            <div class="result" id="r37"></div>
+        </div>
+
+        <div class="question">
+            <p>38. De acuerdo con Éxodo 39:10, ¿cuántas hileras de piedras preciosas había en el pectoral del juicio?</p>
+            <div class="options">
+                <label><input type="radio" name="q38" value="a"> A) Dos hileras</label>
+                <label><input type="radio" name="q38" value="b"> B) Tres hileras</label>
+                <label><input type="radio" name="q38" value="c"> C) Cuatro hileras</label>
+                <label><input type="radio" name="q38" value="d"> D) Doce hileras</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q38')">Verificar Respuesta</button>
+            <div class="result" id="r38"></div>
+        </div>
+
+        <div class="question">
+            <p>39. ¿Qué se grabó en la lámina de la mitra que iba en la frente de Aarón, según Éxodo 39:30?</p>
+            <div class="options">
+                <label><input type="radio" name="q39" value="a"> A) El nombre de Jehová</label>
+                <label><input type="radio" name="q39" value="b"> B) Santidad a Jehová</label>
+                <label><input type="radio" name="q39" value="c"> C) Sumo Sacerdote</label>
+                <label><input type="radio" name="q39" value="d"> D) El Pueblo de Israel</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q39')">Verificar Respuesta</button>
+            <div class="result" id="r39"></div>
+        </div>
+
+        <div class="question">
+            <p>40. En Éxodo 39:43, ¿qué hizo Moisés cuando se terminó la obra del tabernáculo?</p>
+            <div class="options">
+                <label><input type="radio" name="q40" value="a"> A) Reunió a la asamblea para anunciar el fin de la obra</label>
+                <label><input type="radio" name="q40" value="b"> B) Reunió al pueblo para consagrar el tabernáculo</label>
+                <label><input type="radio" name="q40" value="c"> C) Revisó toda la obra y los bendijo</label>
+                <label><input type="radio" name="q40" value="d"> D) Sacrificó una ofrenda de paz</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q40')">Verificar Respuesta</button>
+            <div class="result" id="r40"></div>
+        </div>
+
+        <div class="question">
+            <p>41. Según Éxodo 21:16, ¿cuál es la pena para el que robare una persona y la vendiere o si fuere hallada en sus manos?</p>
+            <div class="options">
+                <label><input type="radio" name="q41" value="a"> A) Pagar el doble del valor de la persona</label>
+                <label><input type="radio" name="q41" value="b"> B) Morirá irremisiblemente</label>
+                <label><input type="radio" name="q41" value="c"> C) Será apedreado por el pueblo</label>
+                <label><input type="radio" name="q41" value="d"> D) Será desterrado por diez años</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q41')">Verificar Respuesta</button>
+            <div class="result" id="r41"></div>
+        </div>
+
+        <div class="question">
+            <p>42. De acuerdo con Éxodo 22:19, ¿qué castigo se le impone a cualquiera que cohabitare con una bestia?</p>
+            <div class="options">
+                <label><input type="radio" name="q42" value="a"> A) Será azotado</label>
+                <label><input type="radio" name="q42" value="b"> B) Morirá</label>
+                <label><input type="radio" name="q42" value="c"> C) Será desterrado de la congregación</label>
+                <label><input type="radio" name="q42" value="d"> D) Deberá ofrecer un sacrificio por el pecado</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q42')">Verificar Respuesta</button>
+            <div class="result" id="r42"></div>
+        </div>
+
+        <div class="question">
+            <p>43. Según Éxodo 23:20-21, ¿qué promesa hace Jehová al pueblo con respecto al ángel que envía delante de ellos?</p>
+            <div class="options">
+                <label><input type="radio" name="q43" value="a"> A) Que los protegerá de sus enfermedades</label>
+                <label><input type="radio" name="q43" value="b"> B) Que los guiará por el camino y los llevará al lugar que les ha preparado</label>
+                <label><input type="radio" name="q43" value="c"> C) Que les dará sabiduría para sus juicios</label>
+                <label><input type="radio" name="q43" value="d"> D) Que les dará riquezas en la tierra prometida</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q43')">Verificar Respuesta</button>
+            <div class="result" id="r43"></div>
+        </div>
+
+        <div class="question">
+            <p>44. Según Éxodo 27:20-21, ¿qué debían traer los hijos de Israel para el alumbrado y con qué frecuencia debía arder?</p>
+            <div class="options">
+                <label><input type="radio" name="q44" value="a"> A) Aceite de olivas machacadas, para que arda de tarde en tarde</label>
+                <label><input type="radio" name="q44" value="b"> B) Leña seca, para que arda continuamente</label>
+                <label><input type="radio" name="q44" value="c"> C) Aceite de olivas machacadas, para que arda de la tarde a la mañana</label>
+                <label><input type="radio" name="q44" value="d"> D) Grasa animal, para que arda una vez a la semana</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q44')">Verificar Respuesta</button>
+            <div class="result" id="r44"></div>
+        </div>
+
+        <div class="question">
+            <p>45. En Éxodo 28:33-34, ¿qué se debía poner en las orlas del manto del efod?</p>
+            <div class="options">
+                <label><input type="radio" name="q45" value="a"> A) Piedras preciosas y esmeraldas</label>
+                <label><input type="radio" name="q45" value="b"> B) Borlas de lino fino</label>
+                <label><input type="radio" name="q45" value="c"> C) Granadas de azul, púrpura y carmesí, y campanillas de oro</label>
+                <label><input type="radio" name="q45" value="d"> D) Cintas de oro y plata</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q45')">Verificar Respuesta</button>
+            <div class="result" id="r45"></div>
+        </div>
+        
+        <div class="question">
+            <p>46. Según Éxodo 30:12, ¿qué debía dar cada varón al ser censado para el rescate de su persona?</p>
+            <div class="options">
+                <label><input type="radio" name="q46" value="a"> A) Un siclo de plata</label>
+                <label><input type="radio" name="q46" value="b"> B) Medio siclo de plata</label>
+                <label><input type="radio" name="q46" value="c"> C) Un siclo de oro</label>
+                <label><input type="radio" name="q46" value="d"> D) Un cordero sin defecto</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q46')">Verificar Respuesta</button>
+            <div class="result" id="r46"></div>
+        </div>
+
+        <div class="question">
+            <p>47. En Éxodo 30:18, ¿qué se debía hacer para el lavamiento de Aarón y sus hijos?</p>
+            <div class="options">
+                <label><input type="radio" name="q47" value="a"> A) Una fuente de bronce para que se laven las manos y los pies</label>
+                <label><input type="radio" name="q47" value="b"> B) Un estanque de agua limpia</label>
+                <label><input type="radio" name="q47" value="c"> C) Una cisterna de agua viva</label>
+                <label><input type="radio" name="q47" value="d"> D) Un baño ceremonial en el río</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q47')">Verificar Respuesta</button>
+            <div class="result" id="r47"></div>
+        </div>
+
+        <div class="question">
+            <p>48. Según Éxodo 35:2, ¿qué mandamiento se dio a toda la congregación de los hijos de Israel con respecto al día séptimo?</p>
+            <div class="options">
+                <label><input type="radio" name="q48" value="a"> A) Seis días se trabajará, y el séptimo se reunirán para hacer fiesta</label>
+                <label><input type="radio" name="q48" value="b"> B) El día séptimo será santo, día de reposo para Jehová</label>
+                <label><input type="radio" name="q48" value="c"> C) El día séptimo se hará sacrificio de holocausto</label>
+                <label><input type="radio" name="q48" value="d"> D) Seis días se trabajará, y el séptimo se limpiará el tabernáculo</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q48')">Verificar Respuesta</button>
+            <div class="result" id="r48"></div>
+        </div>
+
+        <div class="question">
+            <p>49. ¿De qué materiales se hizo la mesa de la proposición, según Éxodo 37:1-2?</p>
+            <div class="options">
+                <label><input type="radio" name="q49" value="a"> A) De oro puro</label>
+                <label><input type="radio" name="q49" value="b"> B) De madera de acacia y la cubrió de oro puro</label>
+                <label><input type="radio" name="q49" value="c"> C) De bronce</label>
+                <label><input type="radio" name="q49" value="d"> D) De plata</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q49')">Verificar Respuesta</button>
+            <div class="result" id="r49"></div>
+        </div>
+
+        <div class="question">
+            <p>50. ¿Qué se usó para hacer el altar del holocausto y todos sus utensilios, según Éxodo 38:30?</p>
+            <div class="options">
+                <label><input type="radio" name="q50" value="a"> A) El bronce de los espejos</label>
+                <label><input type="radio" name="q50" value="b"> B) El bronce de los incensarios de los sacrificadores</label>
+                <label><input type="radio" name="q50" value="c"> C) El bronce de la ofrenda</label>
+                <label><input type="radio" name="q50" value="d"> D) El bronce de las basas del atrio</label>
+            </div>
+            <button type="button" class="check-btn" onclick="checkAnswer('q50')">Verificar Respuesta</button>
+            <div class="result" id="r50"></div>
+        </div>
+
+    </form>
+</div>
+
+<script>
+    const questionsData = {
+        q1: { answer: 'b', rationale: { b: 'El versículo 2 de Éxodo 21 establece: "Si entró solo, solo saldrá".' }},
+        q2: { answer: 'c', rationale: { c: 'Éxodo 21:15 claramente dice: "El que hiriere a su padre o a su madre, morirá."' }},
+        q3: { answer: 'a', rationale: { a: 'Según Éxodo 21:17, quien maldijere a su padre o a su madre, morirá irremisiblemente.' }},
+        q4: { answer: 'b', rationale: { b: 'Éxodo 21:28 establece que el buey será apedreado y su carne no será comida.' }},
+        q5: { answer: 'b', rationale: { b: 'Éxodo 21:29 es claro: si el dueño fue notificado de que el buey era acorneador y no lo guardó, entonces él también morirá.' }},
+        q6: { answer: 'b', rationale: { b: 'La ley del "ojo por ojo, diente por diente" en Éxodo 21:24 establece la restitución exacta, es decir, un castigo que corresponde al daño causado.' }},
+        q7: { answer: 'a', rationale: { a: 'De acuerdo con Éxodo 22:4, un ladrón hallado con el hurto vivo, deberá pagar el doble.' }},
+        q8: { answer: 'a', rationale: { a: 'Éxodo 22:21-22 prohíbe afligir al extranjero, a la viuda y al huérfano.' }},
+        q9: { answer: 'b', rationale: { b: 'Éxodo 22:14 establece que si una bestia prestada muere o es estropeada estando ausente el dueño, el que la tomó prestada deberá pagarla.' }},
+        q10: { answer: 'a', rationale: { a: 'Según Éxodo 22:2, si un ladrón es hallado forzando una casa y es herido de muerte, no se culpará a la persona que lo mató, porque no había luz sobre él.' }},
+        q11: { answer: 'a', rationale: { a: 'Éxodo 23:8 prohíbe tomar soborno, porque corrompe y tuerce el juicio.' }},
+        q12: { answer: 'b', rationale: { b: 'En Éxodo 23:10-11, el ciclo para la siembra de la tierra es de seis años de siembra y un año de reposo.' }},
+        q13: { answer: 'a', rationale: { a: 'Las tres festividades mencionadas en Éxodo 23:14-16 son la Fiesta de los Panes sin Levadura, la Fiesta de la Siega (o de las Primicias) y la Fiesta de la Cosecha.' }},
+        q14: { answer: 'b', rationale: { b: 'Éxodo 23:4 dice: "Si encuentras el buey de tu enemigo o su asno extraviado, se lo volverás a su dueño."' }},
+        q15: { answer: 'a', rationale: { a: 'La prohibición en Éxodo 23:1 es no tomar ni esparcir falso rumor, ni unirse con el impío para ser testigo falso.' }},
+        q16: { answer: 'a', rationale: { a: 'Éxodo 27:1 describe el altar del holocausto como un cuadrado de cinco codos de largo, cinco codos de ancho y tres de alto.' }},
+        q17: { answer: 'a', rationale: { a: 'Éxodo 27:9 indica que las cortinas del atrio eran de lino torcido.' }},
+        q18: { answer: 'b', rationale: { b: 'Según Éxodo 27:18, el atrio tenía una longitud de cien codos y una anchura de cincuenta.' }},
+        q19: { answer: 'b', rationale: { b: 'Éxodo 27:17 menciona que las basas de las columnas del atrio eran de bronce.' }},
+        q20: { answer: 'd', rationale: { d: 'Éxodo 28:15 describe la vestidura sagrada del sumo sacerdote como el pectoral del juicio.' }},
+        q21: { answer: 'b', rationale: { b: 'Éxodo 28:21 dice que las doce piedras representaban los nombres de los hijos de Israel, grabadas una por cada tribu.' }},
+        q22: { answer: 'c', rationale: { c: 'La lámina de oro para la mitra llevaba la inscripción de sello: "SANTIDAD A JEHOVÁ", según Éxodo 28:36.' }},
+        q23: { answer: 'b', rationale: { b: 'Éxodo 28:9-12 establece que los rubíes en las hombreras del efod llevaban grabados los nombres de los hijos de Israel, de acuerdo a sus nacimientos.' }},
+        q24: { answer: 'b', rationale: { b: 'Éxodo 30:6 indica que el altar del incienso se debía colocar delante del velo que cubría el arca del testimonio.' }},
+        q25: { answer: 'b', rationale: { b: 'Éxodo 30:7-8 establece que Aarón debía quemar incienso cada mañana cuando alistara las lámparas y cada anochecer cuando las encendiera.' }},
+        q26: { answer: 'c', rationale: { c: 'Éxodo 30:25-30 especifica que se debía usar el aceite de la santa unción para ungir a Aarón y a sus hijos.' }},
+        q27: { answer: 'b', rationale: { b: 'El altar del incienso era para quemar incienso aromático, como se describe en Éxodo 30:34.' }},
+        q28: { answer: 'c', rationale: { c: 'Éxodo 35:5 menciona que todo generoso de corazón debía traer una ofrenda voluntaria para Jehová.' }},
+        q29: { answer: 'a', rationale: { a: 'Éxodo 35:30-31 identifica a Bezaleel hijo de Uri y a Aholiab hijo de Ahisamac como los artesanos principales llenos del Espíritu de Dios para la obra.' }},
+        q30: { answer: 'a', rationale: { a: 'La generosidad del pueblo fue tanta que en Éxodo 36:5-7, Moisés tuvo que mandar que dejaran de traer ofrendas, porque ya tenían más que suficiente para la obra.' }},
+        q31: { answer: 'b', rationale: { b: 'Éxodo 35:25 dice que las mujeres que eran sabias de corazón hilaban con sus manos y traían lo que habían hilado.' }},
+        q32: { answer: 'a', rationale: { a: 'Éxodo 37:1 describe las dimensiones del arca como dos codos y medio de largo, y de codo y medio de ancho y de codo y medio de alto.' }},
+        q33: { answer: 'b', rationale: { b: 'En Éxodo 37:7, los querubines para el propiciatorio se hicieron de oro fino labrado a martillo, de una sola pieza con el propiciatorio.' }},
+        q34: { answer: 'c', rationale: { c: 'De acuerdo con Éxodo 37:17, el candelero se hizo de oro puro.' }},
+        q35: { answer: 'a', rationale: { a: 'Éxodo 38:8 indica que la fuente de bronce y su base se hicieron con los espejos de bronce de las mujeres que velaban a la puerta del tabernáculo de reunión.' }},
+        q36: { answer: 'b', rationale: { b: 'Éxodo 38:1 describe el altar del holocausto como un altar de madera de acacia cubierto de bronce.' }},
+        q37: { answer: 'b', rationale: { b: 'Según Éxodo 39:2, el efod se hizo de oro, de azul, púrpura, carmesí y lino torcido.' }},
+        q38: { answer: 'c', rationale: { c: 'Éxodo 39:10 dice que el pectoral del juicio tenía cuatro hileras de piedras preciosas.' }},
+        q39: { answer: 'b', rationale: { b: 'Éxodo 39:30 dice que en la lámina de la mitra se grabó como sello "SANTIDAD A JEHOVÁ".' }},
+        q40: { answer: 'c', rationale: { c: 'En Éxodo 39:43, Moisés revisó toda la obra y, al ver que estaba hecha conforme a lo que Jehová había mandado, los bendijo.' }},
+        q41: { answer: 'b', rationale: { b: 'Éxodo 21:16 establece que el que robare una persona y la vendiere, o si fuere hallada en sus manos, morirá.' }},
+        q42: { answer: 'b', rationale: { b: 'Éxodo 22:19 es claro en que "cualquiera que cohabitare con bestia, morirá".' }},
+        q43: { answer: 'b', rationale: { b: 'En Éxodo 23:20, Jehová promete enviar a su ángel para que los guarde en el camino y los meta en el lugar que Él ha preparado.' }},
+        q44: { answer: 'c', rationale: { c: 'Éxodo 27:20-21 instruye a los israelitas a traer aceite puro de olivas machacadas para el alumbrado, que Aarón y sus hijos deben poner en orden para que arda desde la tarde hasta la mañana.' }},
+        q45: { answer: 'c', rationale: { c: 'Éxodo 28:33-34 especifica que se debían poner granadas de azul, púrpura y carmesí, junto con campanillas de oro alrededor del manto del efod.' }},
+        q46: { answer: 'b', rationale: { b: 'Éxodo 30:13 indica que cada varón debía dar medio siclo de plata como ofrenda a Jehová para el rescate de su persona.' }},
+        q47: { answer: 'a', rationale: { a: 'Éxodo 30:18 instruye a hacer una fuente de bronce con su base para que Aarón y sus hijos se laven las manos y los pies antes de entrar en el tabernáculo.' }},
+        q48: { answer: 'b', rationale: { b: 'Éxodo 35:2 establece que el día séptimo será santo, día de reposo para Jehová.' }},
+        q49: { answer: 'b', rationale: { b: 'Éxodo 37:1-2 describe que la mesa se hizo de madera de acacia y se cubrió de oro puro.' }},
+        q50: { answer: 'c', rationale: { c: 'Éxodo 38:29-30 menciona que el bronce de la ofrenda, que sumó setenta talentos, se usó para el altar del holocausto y todos sus utensilios, así como para las basas del atrio.' }}
+    };
+
+    function checkAnswer(questionName) {
+        const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+        const resultDiv = document.getElementById(`r${questionName.substring(1)}`);
+        const correctInfo = questionsData[questionName];
+
+        if (!selectedOption) {
+            resultDiv.textContent = 'Por favor, selecciona una opción.';
+            resultDiv.className = 'result incorrect';
+            return;
+        }
+
+        if (selectedOption.value === correctInfo.answer) {
+            resultDiv.textContent = '¡Correcto! ' + correctInfo.rationale[selectedOption.value];
+            resultDiv.className = 'result correct';
+        } else {
+            resultDiv.textContent = 'Incorrecto. La respuesta correcta es la opción ' + correctInfo.answer.toUpperCase() + '. ' + correctInfo.rationale[correctInfo.answer];
+            resultDiv.className = 'result incorrect';
+        }
+    }
+</script>
+
+</body>
+</html>
